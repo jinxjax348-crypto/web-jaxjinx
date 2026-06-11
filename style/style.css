@@ -1,0 +1,365 @@
+/* ============================================================
+   VARIABLES 
+   ============================================================ */
+:root {
+  --color-fondo: radial-gradient(circle at center, #0d0d0d 60%, #1a0033 100%);
+  --color-principal: #00ffff;
+  --color-secundario: #ff00ff;
+  --color-texto: #ffffff;
+  --radio-borde: 12px;
+  --espaciado: 20px;
+  --shadow-principal: 0 0 20px var(--color-principal);
+  --shadow-secundario: 0 0 20px var(--color-secundario);
+}
+
+/* ============================================================
+   ESTILO GLOBAL
+   ============================================================ */
+body {
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+strong {
+  color: var(--color-principal);
+}
+
+/* Loader */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeOut 1s ease 2s forwards;
+}
+.loader span {
+  font-size: 1.5em;
+  color: var(--color-principal);
+  animation: blink 0.8s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+@keyframes fadeOut { to{opacity:0;visibility:hidden;} }
+
+/* Header */
+header {
+  padding: var(--espaciado);
+  background-color: #000;
+  border-bottom: 3px solid var(--color-principal);
+}
+header h1 {
+  font-family: 'TR2N', sans-serif;
+  font-size: 3rem;
+  color: var(--color-principal);
+  text-shadow: var(--shadow-principal);
+  margin-bottom: 20px;
+}
+header p {
+  max-width: 800px;
+  margin: 0 auto 25px auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   MENÚ DE NAVEGACIÓN (INTEGRALMENTE CENTRADO Y COMPACTADO)
+   ============================================================ */
+#menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-principal);
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin: 15px auto;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+}
+
+nav ul li {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  display: inline-flex;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 22px;
+  background-color: #000;
+  border: 2px solid var(--color-principal);
+  border-radius: var(--radio-borde);
+  color: var(--color-texto);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: var(--shadow-principal);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+nav ul li a:hover {
+  background-color: var(--color-principal);
+  color: #000;
+  box-shadow: var(--shadow-secundario);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   SECCIONES Y CONTENEDORES CENTRADOS
+   ============================================================ */
+.fetiches-nicho, .stream, .premium, .videos-personalizados, .reviews, .community, .faq {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 25px var(--espaciado);
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--color-principal);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--shadow-principal);
+  box-sizing: border-box;
+}
+
+h2 {
+  font-family: 'TR2N', sans-serif;
+  color: var(--color-principal);
+  text-shadow: var(--shadow-principal);
+  margin-top: 0;
+  margin-bottom: var(--espaciado);
+}
+
+p {
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+}
+
+/* Listas Informativas (Textos centrados y limpios) */
+.lista-info {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 650px;
+}
+.lista-info li {
+  margin: 15px 0;
+  padding: 12px;
+  border-bottom: 1px dashed rgba(0, 255, 255, 0.2);
+}
+
+/* Galería de Imágenes */
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 40px var(--espaciado);
+}
+.images img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--radio-borde);
+  border: 2px solid var(--color-secundario);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.images img:hover { 
+  transform: scale(1.05); 
+  box-shadow: var(--shadow-secundario);
+}
+
+/* Personalización Estilo Magenta (Fetiches) */
+.fetiches-nicho {
+  border-color: var(--color-secundario);
+  box-shadow: var(--shadow-secundario);
+}
+.fetiches-nicho h2 {
+  color: var(--color-secundario);
+  text-shadow: var(--shadow-secundario);
+}
+.fetiches-nicho .lista-info li {
+  border-bottom-color: rgba(255, 0, 255, 0.2);
+}
+
+/* Stream Iframe */
+.stream-frame {
+  width: 100%;
+  max-width: 100%;
+  height: 480px;
+  border: 2px solid var(--color-principal);
+  border-radius: var(--radio-borde);
+  margin-top: 20px;
+  box-shadow: var(--shadow-principal);
+}
+
+/* Lista de Precios */
+.lista-precios {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.lista-precios li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--color-secundario);
+  font-weight: bold;
+}
+.lista-precios li strong {
+  color: var(--color-secundario);
+  text-shadow: var(--shadow-secundario);
+}
+
+/* REGLAS (Video Centrado, Elegante y Pequeño) */
+.rules {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+}
+.img_rules {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: var(--radio-borde);
+  border: 3px solid var(--color-secundario);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.img_rules:hover {
+  transform: scale(1.04);
+  border-color: var(--color-principal);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.8);
+}
+
+/* Opiniones de la Comunidad */
+.reviews {
+  border-color: var(--color-secundario);
+  box-shadow: var(--shadow-secundario);
+}
+.reviews h2 {
+  color: var(--color-secundario);
+  text-shadow: var(--shadow-secundario);
+}
+.review-item {
+  background: rgba(26, 0, 51, 0.4);
+  border: 1px solid var(--color-secundario);
+  padding: 20px;
+  border-radius: var(--radio-borde);
+  margin-bottom: 15px;
+}
+.review-item small {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-secundario);
+  font-weight: bold;
+}
+
+/* Bloques FAQ */
+.faq-item {
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  padding-bottom: 15px;
+  text-align: center;
+}
+.faq-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.faq-item strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Footer Redes */
+.footer-redes {
+  padding: 40px var(--espaciado);
+  background-color: #000;
+  border-top: 3px solid var(--color-principal);
+}
+.footer-redes h3 { 
+  margin-bottom: 20px; 
+  font-family: 'TR2N', sans-serif;
+  color: var(--color-principal);
+}
+.footer-redes a {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 8px;
+  background-color: #000;
+  border: 2px solid var(--color-principal);
+  border-radius: var(--radio-borde);
+  color: var(--color-texto);
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: var(--shadow-principal);
+  transition: 0.3s;
+}
+.footer-redes a:hover {
+  background: var(--color-principal);
+  color: #000;
+  box-shadow: var(--shadow-secundario);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (Alineación Perfecta en Pantallas Chicas)
+   ============================================================ */
+@media (max-width: 768px) {
+  header h1 { font-size: 2.2rem; }
+  #menuToggle { display: block; }
+  
+  nav { margin: 15px 0; }
+  nav ul { 
+    display: none; 
+    flex-direction: column; 
+    width: 100%;
+    gap: 12px;
+    padding: 0 15px;
+  }
+  nav ul.open { display: flex; }
+  
+  nav ul li { width: 100%; justify-content: center; }
+  nav ul li a { width: 90%; text-align: center; padding: 14px 0; }
+  
+  .images { padding: 20px 10px; gap: 10px; }
+  .images img { height: 160px; width: calc(50% - 5px); }
+  .stream-frame { height: 320px; }
+  .fetiches-nicho, .stream, .premium, .videos-personalizados, .reviews, .community, .faq { max-width: 92%; }
+}
+
+@media (max-width: 480px) {
+  header h1 { font-size: 1.6rem; }
+  .images img { width: 100%; height: 220px; }
+  .stream-frame { height: 230px; }
+  .img_rules { max-width: 80%; }
+  .footer-redes a { font-size: 0.9rem; padding: 12px; width: 85%; display: block; margin: 10px auto; }
+  .lista-precios li { font-size: 0.9rem; padding: 10px 5px; }
+}
