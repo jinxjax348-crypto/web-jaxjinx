@@ -68,7 +68,7 @@ header p {
 }
 
 /* ============================================================
-   MENÚ DE NAVEGACIÓN (INTEGRALMENTE CENTRADO Y COMPACTADO)
+   MENÚ DE NAVEGACIÓN (CORREGIDO Y ALINEADO)
    ============================================================ */
 #menuToggle {
   display: none;
@@ -92,11 +92,13 @@ nav ul {
   padding: 0;
   margin: 0 auto;
   display: flex;
+  flex-direction: row;        /* Asegura que los botones vayan uno al lado del otro */
   justify-content: center;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap;
-  max-width: 1100px;
+  flex-wrap: wrap;            /* Permite saltar de línea limpiamente si no hay espacio */
+  max-width: 1200px;
+  width: 100%;
 }
 
 nav ul li {
@@ -104,7 +106,7 @@ nav ul li {
   padding: 0 !important;
   border: none !important;
   background: none !important;
-  display: inline-flex;
+  display: block;             /* Cambiado de inline-flex a block para evitar colapsos */
 }
 
 nav ul li a {
@@ -119,7 +121,7 @@ nav ul li a {
   font-weight: bold;
   box-shadow: var(--shadow-principal);
   transition: all 0.3s ease;
-  white-space: nowrap;
+  white-space: nowrap;        /* Evita que el texto interno del botón se rompa en 2 filas */
 }
 
 nav ul li a:hover {
@@ -157,7 +159,7 @@ p {
   margin: 0 auto 20px auto;
 }
 
-/* Listas Informativas (Textos centrados y limpios) */
+/* Listas Informativas */
 .lista-info {
   list-style: none;
   padding: 0;
@@ -170,21 +172,31 @@ p {
   border-bottom: 1px dashed rgba(0, 255, 255, 0.2);
 }
 
-/* Galería de Imágenes */
+/* ============================================================
+   GALERÍA DE IMÁGENES (UNA AL LADO DE LA OTRA EN FILA PERFECTA)
+   ============================================================ */
 .images {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;        /* Fuerza la alineación horizontal */
+  flex-wrap: wrap;            /* Controla el comportamiento responsive */
   gap: 15px;
   justify-content: center;
+  align-items: center;
   padding: 40px var(--espaciado);
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .images img {
+  width: calc(20% - 15px);    /* Distribuye exactamente el 20% del ancho para cada una de las 5 imágenes */
+  min-width: 180px;           /* Impide que se vuelvan demasiado minúsculas */
   height: 250px;
-  object-fit: cover;
+  object-fit: cover;          /* Recorta y cuadra la imagen estéticamente sin deformarla */
   border-radius: var(--radio-borde);
   border: 2px solid var(--color-secundario);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
 .images img:hover { 
   transform: scale(1.05); 
   box-shadow: var(--shadow-secundario);
@@ -234,7 +246,7 @@ p {
   text-shadow: var(--shadow-secundario);
 }
 
-/* REGLAS (Video Centrado, Elegante y Pequeño) */
+/* REGLAS */
 .rules {
   background: transparent !important;
   border: none !important;
@@ -330,7 +342,7 @@ p {
 }
 
 /* ============================================================
-   RESPONSIVE DESIGN (Alineación Perfecta en Pantallas Chicas)
+   RESPONSIVE DESIGN (OPTIMIZADO PARA MÓVILES)
    ============================================================ */
 @media (max-width: 768px) {
   header h1 { font-size: 2.2rem; }
@@ -350,14 +362,14 @@ p {
   nav ul li a { width: 90%; text-align: center; padding: 14px 0; }
   
   .images { padding: 20px 10px; gap: 10px; }
-  .images img { height: 160px; width: calc(50% - 5px); }
+  .images img { height: 160px; width: calc(50% - 10px); } /* Dos imágenes por fila en móviles medianos */
   .stream-frame { height: 320px; }
   .fetiches-nicho, .stream, .premium, .videos-personalizados, .reviews, .community, .faq { max-width: 92%; }
 }
 
 @media (max-width: 480px) {
   header h1 { font-size: 1.6rem; }
-  .images img { width: 100%; height: 220px; }
+  .images img { width: 100%; height: 220px; } /* Una imagen gigante por fila en teléfonos pequeños */
   .stream-frame { height: 230px; }
   .img_rules { max-width: 80%; }
   .footer-redes a { font-size: 0.9rem; padding: 12px; width: 85%; display: block; margin: 10px auto; }
