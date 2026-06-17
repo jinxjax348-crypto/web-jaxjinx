@@ -128,7 +128,7 @@
   <section class="community">
     <h2>Reglas de la Comunidad y Convivencia</h2>
     <ul class="lista-info">
-      <li>Respeto absolut hacia los modelos y los moderadores de la comunidad.</li>
+      <li>Respeto absoluto hacia los modelos y los moderadores de la comunidad.</li>
       <li>Solicita las cosas con cortesía: la seducción y el morbo empiezan con educación.</li>
       <li>El contenido XXX de esta web está estrictamente reservado para mayores de 18 años.</li>
       <li>La privacidad es sagrada: queda prohibido grabar o difundir los shows privados.</li>
@@ -140,7 +140,7 @@
     <h2>Preguntas Frecuentes sobre Jax y Jinx</h2>
     <div class="faq-item">
       <strong>¿Cómo puedo solicitar un video personalizado?</strong>
-      <p>Solo debes contactarnos a través de nuestras redes sociales oficiales (como Twitter/X) especificando la duración que deseas comprar y los detalles de tu fantasía.</p>
+      <p>Solo debes contactarnos a través de nuestras redes sociales oficiales (como Twitter/X) especificando la duración que deseas comprar and los detalles de tu fantasía.</p>
     </div>
     <div class="faq-item">
       <strong>¿El contenido exclusivo es seguro y discreto?</strong>
@@ -162,5 +162,15 @@
   </footer>
 
   <script src="JavaScript/Script_video.js"></script>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainMenu = document.querySelector('#mainMenu ul');
+    if(menuToggle && mainMenu) {
+      menuToggle.addEventListener('click', () => {
+        mainMenu.classList.toggle('open');
+      });
+    }
+  </script>
 </body>
 </html>
